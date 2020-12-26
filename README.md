@@ -18,5 +18,8 @@ Password generator that will, upon selecting the desired length and characters, 
 ## Website
 https://cerafinn.github.io/password-generator
 
+![Password Generator](./assets/screen-capture.png)
+
+
 ## Contribution
 Built JavaScript with ❤️ by Andaleeb Farooq
