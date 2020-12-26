@@ -19,74 +19,100 @@ function determinePasswordChar() {
 
   //prompt for non-numeric length entry
   if (isNaN(length) === true) {
-    alert('Length entered must be a number.');
+    alert('Length entered must be a number. Please enter a number between 8 and 128.');
     return;
   };
 
   //prompt for length within range 8-128
-  if (8 > length) {
-    alert('Length of password must be between more than 8 characters. Please enter a number between 8 and 128.');
-    return;
-  };
-
-  if (128 < length) {
-    alert('Length of password must be between less than 128 characters. Please enter a number between 8 and 128.');
+  if (8 > length || 128 < length) {
+    alert('Length of password must be a number more than 8 characters and less than 128. Please enter a number between 8 and 128.');
     return;
   };
 
   //prompt for if lowercase
-  var lowerchar = confirm(
+  var lowerChar = confirm(
     'Click OK to include lowercase characters.'
   );
 
   //prompt for if uppercase
-  var upperchar = confirm(
+  var upperChar = confirm(
     'Click OK to include uppercase characters.'
   );
 
   //prompt for if numeric
-  var numbers = confirm(
+  var numChar = confirm(
     'Click OK to include numeric characters.'
   );
 
   //prompt for if special
-  var specialchar = confirm(
+  var specialChar = confirm(
     'Click OK to include special characters.'
   );
 
-  if(!lowerchar && !upperchar && !numbers && !specialchar) {
+  if(!lowerChar && !upperChar && !numChar && !specialChar) {
     alert("Please choose at least one character type.");
-    return;
+    return determinePasswordChar();
   };
-  
-  // store variables named chosen
-  var chosen = {
+
+  var userChoices = {
     length: length,
-    lowerchar: lowerchar,
-    upperchar: upperchar,
-    numbers: numbers,
-    specialchar: specialchar,
+    lowerChar: lowerChar,
+    upperChar: upperChar,
+    numChar: numChar,
+    specialChar: specialChar,
   };
+
+  return userChoices;
 };
 
-determinePasswordChar();
-
-function generatePassowrd() {
-  //get options from length and character type prompts
-  var chosen = determinePasswordChar ();
-
-
-  //ensure that each character type selected is guaranteed
-
-  //get string as result of character selection
+function getRandom(arr) {
+  var randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex]
 }
+
+function generatePassword() {
+  var result = [];
+  var possibleCharacters = [];
+  var guaranteedCharacters = [];
+
+  var options = determinePasswordChar();
+
+  if (options.lowerChar === true) {
+    possibleCharacters = possibleCharacters.concat(lowercase);
+    guaranteedCharacters.push(getRandom(lowercase));
+  };
+
+  if (options.upperChar === true) {
+    possibleCharacters = possibleCharacters.concat(uppercase);
+    guaranteedCharacters.push(getRandom(uppercase));
+  };
+
+  if (options.numChar === true) {
+    possibleCharacters = possibleCharacters.concat(numeric);
+    guaranteedCharacters.push(getRandom(numeric));
+  };
+
+  if (options.specialChar === true) {
+    possibleCharacters = possibleCharacters.concat(special);
+    guaranteedCharacters.push(getRandom(special));
+  };
+
+  for (var i = 0; i < options.length; i++) {
+    result.push(getRandom(possibleCharacters));
+  };
+
+  for (var i = 0; i < guaranteedCharacters.length; i++) {
+    result[i] = guaranteedCharacters[i];
+  };
+
+  return result.join('');
+};
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  debugger
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
