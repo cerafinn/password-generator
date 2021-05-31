@@ -1,25 +1,58 @@
 # Password Generator
-Added javascript code in order to generate a random password, which guarantees at least one character specified by the user.
+
+## Description
+Password generator that will, upon selecting desired length and character, generate a password and that includes at least one of each specified character
+
+
+
+Table of Contents |
+-------------------|
+[Usage](#Usage)
+[Technologies](#Technologies)
+[Screenshots](#Screenshots)
+[Contributing](#Contributing)
+[Author](#Author)
+[Questions](#Questions)
 
 <br />
 
-## General Information
-Password generator that will, upon selecting the desired length and characters, will generate a password within the field on the page that includes at least one of each specified character.
+## Usage
+
+Created the JavaScript functions for password generator. This allows the site to prompt users of their desired characters and length of the password. After accepting the entries, the function will display a randomly generated password in the field on the page.
+
+You can find the deployed link and the repository link below:
+
+Deployed Link: [Deployed Link](https://cerafinn.github.io/password-generator)
+
+Repo Link: [Repo Link](https://github.com/cerafinn/password-generator)
 
 <br />
 
-## Build With
+## Technologies
+
 * HTML
 * CSS
 * JavaScript
 
 <br />
 
-## Website
-https://cerafinn.github.io/password-generator
+## Screenshots
 
-![Password Generator](./assets/screen-capture.png)
+![IMG](./assets/images/password-generator-screenshot.png)
 
+## Contributing
 
-## Contribution
-Built JavaScript with ❤️ by Andaleeb Farooq
+If interested in contributing to the project, feel free to reach out. Contact information can be found in the Questions section.
+
+<br />
+
+## Author
+
+Andaleeb Farooq: [:octocat:](https://github.com/cerafinn)
+
+<br />
+
+## Questions
+
+If you have any questions or issues, feel free to reach out at: andaleeb.farooq@gmail.com.
+You can also find more of my work on Github at [github link](https://github.com/cerafinn).
